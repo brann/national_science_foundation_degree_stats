@@ -1,0 +1,27 @@
+rails generate model DegreesByFieldYear \
+field:references:index \
+year:integer{4}:index \
+bachelor_all:integer \
+bachelor_male:integer \
+bachelor_female:integer \
+master_all:integer \
+master_male:integer \
+master_female:integer \
+doctorate_all:integer \
+doctorate_male:integer \
+doctorate_female:integer \
+--force
+
+# to allow ActiveRecord support for sex(m|f|nill) level(bachelor|master|doctorate)
+
+rails generate model Degree \
+field:references:index \
+year:integer{4}:index \
+level:string:index \
+sex:string{1}:index \
+count:integer \
+--force
+
+# may reference another field as a parent.
+# neeeds to be setup manually still.
+rails generate model Field name:string:index field:references:index --force
