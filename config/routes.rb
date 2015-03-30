@@ -15,7 +15,6 @@ namespace :api_domain, :path => "", :defaults => {:format => :json}, :constraint
 end
 
 # domain/api/v1/degrees/
-end
 namespace :api do
   namespace :v1 do
     resources :degrees, :defaults => {:format => :json}, :only => [:index, :search]
