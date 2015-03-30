@@ -1,5 +1,6 @@
 class FieldSerializer < ActiveModel::Serializer
+  cache key: 'field', expires_in: 1.year
   attributes :name, :id
-
-  has_many :degrees_by_field_year_sex
+  belongs_to :field
+  attribute :field, :key => :parent_field
 end
