@@ -1,8 +1,10 @@
 class API::V1::DegreesController < ApplicationController
   def index
-    render :json => DegreesByFieldYearSex.where(params.permit(
+    @results = DegreesByFieldYearSex.where(params.permit(
       :field,    :level,    :sex,   :year,
       field: [], level: [], sex: [], year: []
     )).all
+
+    render :json => @results, meta: { total: "total" }, root: "degrees"
   end
 end
