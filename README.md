@@ -7,13 +7,15 @@ and presents them as a searchable api
 
 ## Ruby version
 
-  Ruby-2.2.1
-  Rails-4.2.1
+    Ruby-2.3.0
+    Rails-4.2.5
 
 ## Setup
 
-  rake db:reset
-  rails s
-  http://localhost:3000/api/v1/degrees/
-  params can be single or array on any field except count. eg
-  http://localhost:3000/api/v1/degrees/?year[]=1990&year[]=1991&level=doctorate
+    rake db:reset
+    rails s
+
+    http://localhost:3000/api/v1/degrees/
+    http://localhost:3000/api/v1/fields/
+    params can be single or array on any field except count. eg
+    http://localhost:3000/api/v1/degrees/?year[]=1990&year[]=1991&level=doctorate

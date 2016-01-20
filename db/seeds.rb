@@ -5,13 +5,13 @@ def seed_result
     book = Spreadsheet.open file
     sheet = book.worksheet 0
     field = sheet.row(0)[0]
-    field_short =  /^TABLE \d\d.[[:space:]]+(.*?) degrees awarded/.match(field)[1]
+    field_short = /^TABLE \d\d.[[:space:]]+(.*?) degrees awarded/.match(field)[1]
     puts 'field_short:' << field_short
     (4..56).each do |i|
       field_year_row = sheet.row(i)
       next unless field_year_row[0].to_s =~ /\d{4}/
       field_obj = Field.find_or_create_by(name: field_short)
-      result = DegreesByFieldYear.create(
+      DegreesByFieldYear.create(
         :field            => field_obj,
         :year             => field_year_row[0].to_i,
         :bachelor_all     => field_year_row[2].to_i,

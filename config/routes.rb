@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 namespace :api_domain, :path => "", :defaults => {:format => :json}, :constraints => {:subdomain => "api"} do
   namespace :v1 do
     resources :degrees, :only => [:index, :search]
+    resources :fields, :only => [:index]
   end
 end
 
@@ -18,6 +19,7 @@ end
 namespace :api do
   namespace :v1 do
     resources :degrees, :defaults => {:format => :json}, :only => [:index, :search]
+    resources :fields, :defaults => {:format => :json}, :only => [:index]
   end
 end
 

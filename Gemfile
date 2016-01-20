@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '4.2.1'
+gem 'rails'
 
 # gem 'active_model_serializers'
 # want the latest for it to work, and also belongs_to etc
